@@ -1,5 +1,6 @@
 package com.google.core.utils;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -31,5 +32,8 @@ public class FileUtilities {
         return properties;
     }
 
+    public static void createDirectory(String path){
+        new File(path).mkdir();
+    }
 
 }

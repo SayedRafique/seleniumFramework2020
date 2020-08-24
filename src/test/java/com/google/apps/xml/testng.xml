@@ -1,7 +1,14 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="Google UI Tests suite" verbose="1" >
-    <test name="Google Search Tests" >
+<suite name="Google UI Tests suite" verbose="1" parallel="tests">
+    <test name="Google Search Tests - chrome" parallel="methods" >
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="com.google.apps.TestClass" />
+        </classes>
+    </test>
+    <test name="Google Search Tests -firefox" parallel="methods">
+        <parameter name="browser" value="firefox" />
         <classes>
             <class name="com.google.apps.TestClass" />
         </classes>

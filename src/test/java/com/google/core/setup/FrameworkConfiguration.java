@@ -6,6 +6,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.io.IOException;
 import java.util.Properties;
 
+import static com.google.core.utils.DriverUtilities.getDriversForLocal;
+
 
 public class FrameworkConfiguration {
     private static String configFilePath = System.getProperty("user.dir")+"/src/test/resources/config.properties";
@@ -18,9 +20,8 @@ public class FrameworkConfiguration {
     // Initialized method
     public static void initialize() throws IOException {
         FileUtilities  fileUtilities = new FileUtilities();
-        DriverUtilities driverUtilities = new DriverUtilities();
         setCONFIG(fileUtilities.updatePropertyFile(CONFIG,configFilePath));
-        setWebDriver((RemoteWebDriver) driverUtilities.createDriver(getBrowser()));
+        getDriversForLocal(isDebug());
     }
 
 
